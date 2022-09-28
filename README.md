@@ -1,1 +1,1 @@
-# HomeWorks an Node JS Projects by Jesus Clemente
+# HomeWorks and Node JS Projects by Jesus Clemente
