@@ -2,7 +2,11 @@ const Users = require("../models/users.models");
 const uuid = require('uuid');
 const {hashPassword} = require("../utils/crypto");
 
-const getAllUsers = async () => (await Users.findAll())
+const getAllUsers = async () => (await Users.findAll({
+    where: {
+        status: 'active'
+    }
+                                                     }))
 
 const getUserById = async (id) => (await Users.findOne({where: {id}}));
 
@@ -25,7 +29,7 @@ const updateUser = async (id, data) => (await Users.update(data, {where: {id}}))
 
 const deleteUser = async (id) => (await Users.destroy({where: {id}}));
 
-const getUserByEmail = async (email) => (await Users.findOne({where: {email}}));
+const getUserByEmail = async (email) => (await Users.findOne({where: {email, status: 'active'}}));
 
 module.exports = {
     getAllUsers,

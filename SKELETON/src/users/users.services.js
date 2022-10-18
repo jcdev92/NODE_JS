@@ -14,20 +14,20 @@ const getUserById = (req, res) => {
 }
 
 const registerUser = (req, res) => {
-    const {firstName, lastName, email, password, phone, birthDay} = req.body;
-    if (firstName && lastName && email && password && phone && birthDay) {
-        usersControllers.createUser({firstName, lastName, email, password, phone, birthDay})
+    const {firstName, lastName, email, password, phone, birthDay, gender, country} = req.body;
+    if (firstName && lastName && email && password && phone && birthDay && gender && country) {
+        usersControllers.createUser({firstName, lastName, email, password, phone, birthDay, gender, country})
             .then(data => res.status(201).json(data))
             .catch(error => res.status(400).json(error));
     } else {
-        res.status(400).json({message: 'Missing data, complete all fields', fields: {firstName: 'string', lastName: 'string', email: 'example@example.com', password: 'string', phone: '+5212345625', birthDay: 'YYYY/MM/D'}});
+        res.status(400).json({message: 'Missing data, complete all fields', fields: {firstName: 'string', lastName: 'string', email: 'example@example.com', password: 'string', phone: '+5212345625', birthDay: 'YYYY/MM/D', gender: 'string', country: 'string'}});
     }
 }
 
 const patchUser = (req, res) => {
     const {id} = req.params;
-    const {firstName, lastName, email, phone, birthday, gender} = req.body;
-    usersControllers.updateUser(id, {firstName, lastName, email, phone, birthday, gender})
+    const {firstName, lastName, email, phone, birthday, gender, country, role} = req.body;
+    usersControllers.updateUser(id, {firstName, lastName, email, phone, birthday, gender, country, role})
         .then(data => {if (data[0]) { res.status(200).json({message: `User ${id} updated successfully`}) } else {res.status(404).json({message: `User ${id} not found`})}})
         .catch(error => res.status(400).json(error));
 }
@@ -56,18 +56,24 @@ const getMyUser = (req, res) => {
 
 const patchMyUser = (req, res) => {
     const {id} = req.user;
-    const {firstName, lastName, email, phone, birthday, gender} = req.body;
-    usersControllers.updateUser(id, {firstName, lastName, email, phone, birthday, gender})
+    const {firstName, lastName, email, phone, birthday, gender, country} = req.body;
+    usersControllers.updateUser(id, {firstName, lastName, email, phone, birthday, gender, country})
         .then(() => res.status(200).json({message: `User ${id} updated successfully`}))
         .catch(error => res.status(400).json(error));
 }
 
 const deleteMyUser = (req, res) => {
     const {id} = req.user;
-    usersControllers.deleteUser(id)
-        .then(() => res.status(204).json())
-        .catch(error => res.status(400).json(error));
-}
+
+    usersControllers.updateUser(id, { status: "inactive" })
+        .then(() => {
+            res.status(200).json({ message: `Your user was deleted successfully!` });
+        })
+        .catch((err) => {
+            res.status(400).json({ message: err.message });
+        });
+};
+
 
 
 
