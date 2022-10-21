@@ -8,7 +8,7 @@ const config = {
     db: {
         host: process.env.DB_HOST || 'localhost',
         user: process.env.DB_USER || 'root',
-        password: process.env.DB_PASSWORD || 'xyz',
+        password: process.env.DB_PASS || 'xyz',
         dbName: process.env.DB_NAME
     }
 };
