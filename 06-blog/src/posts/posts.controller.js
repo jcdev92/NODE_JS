@@ -4,12 +4,17 @@ const User = require('../models/users.models');
 const Category = require('../models/categories.models');
 
 const getAllPosts = async () => { return await Posts.findAll({
+    attributes: {
+        exclude: ['createdAt', 'updatedAt', 'userId', 'categoryId']
+    },
+
     include: [
         {
             model: Category,
         },
         {
             model: User,
+            attributes: ['id', 'firstName', 'lastName', 'email']
         }
     ]
 })};
@@ -26,8 +31,18 @@ const createPost = async (data) => {
         })
 }
 
+const getPostsByCategory = async (categoryId) => {
+    return await Posts.findAll({
+        where: {
+            categoryId
+        }
+    })
+
+}
+
 module.exports = {
     getAllPosts,
     getPostById,
-    createPost
+    createPost,
+    getPostsByCategory
 }

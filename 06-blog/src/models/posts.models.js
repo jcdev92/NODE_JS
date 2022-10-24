@@ -20,7 +20,7 @@ const Posts = db.define('posts', {
     userId: {
         type: DataTypes.UUID,
         allowNull: false,
-        field: 'created_by',
+        field: 'user_id',
         references: {
             model: Users,
             key: 'id'

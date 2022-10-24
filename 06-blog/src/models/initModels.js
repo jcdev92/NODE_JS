@@ -7,14 +7,14 @@ const initModels = () => {
     //? One to Many
 
     //? A post belongs to a user
-    Posts.belongsTo(Users, {foreignKey: 'createdBy'})
+    Posts.belongsTo(Users)
     //? A user can have many posts
-    Users.hasMany(Posts, {foreignKey: 'createdBy'})
+    Users.hasMany(Posts)
 
     //? A post belongs to a category
-    Posts.belongsTo(Categories, {foreignKey: 'categoryId'})
+    Posts.belongsTo(Categories)
     //? A category can have many posts
-    Categories.hasMany(Posts, {foreignKey: 'categoryId'})
+    Categories.hasMany(Posts)
 }
 
 module.exports = initModels
