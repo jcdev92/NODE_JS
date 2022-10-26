@@ -3,8 +3,10 @@ const uuid = require('uuid');
 const User = require('../models/users.models');
 const Category = require('../models/categories.models');
 
-const getAllPosts = async () => {
-    return await Posts.findAll({
+const getAllPosts = async(limit, offset) => {
+    return await Posts.findAndCountAll({
+    limit: limit? limit : 10,
+    offset: offset? offset : 1,
     attributes: {
         exclude: ['createdAt', 'updatedAt', 'userId', 'categoryId']
     },

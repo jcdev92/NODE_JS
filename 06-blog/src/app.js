@@ -13,15 +13,6 @@ const postsRouter = require('./posts/posts.router');
 //? Initial Configs
 const app = express();
 
-//? Middlewares
-app.use(express.json());
-
-//? Routes
-app.use('/api/v1/users', usersRouter)
-app.use('/api/v1/auth', authRouter)
-app.use('/api/v1/categories', categoriesRouter);
-app.use('/api/v1/posts', postsRouter);
-
 
 database.authenticate()
     .then(() => console.log('Database connected...'))
@@ -32,6 +23,15 @@ database.sync()
     .catch(err => console.log('Error: ' + err));
 
 initModels();
+
+//? Middlewares
+app.use(express.json());
+
+//? Routes
+app.use('/api/v1/users', usersRouter)
+app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/categories', categoriesRouter);
+app.use('/api/v1/posts', postsRouter);
 
 app.get('/', (req, res) => {
     res.status(200).json({ message: 'Hello World!', users: `localhost:${port}/api/v1/users`});
