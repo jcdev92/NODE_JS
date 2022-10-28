@@ -17,11 +17,11 @@ const getOneUser = (req, res) => {
 
 const postUser = (req, res) => {
     const { first_name, last_name, email, password, birthday } = req.body;
-    const data = createUser(first_name, last_name, email, password, birthday);
-    if (data) {
-        res.status(200).json(data);
+    if (first_name && last_name && email && password && birthday) {
+        createUser(first_name, last_name, email, password, birthday);
+        res.status(201).json({ message: 'User created' });
     } else {
-        res.status(400).json({ message: 'Bad request' });
+        res.status(400).json({ message: 'Bad request, please enter a valid field', fields: {'first_name': 'string', 'last_name': 'string', 'email':'string', 'password':'string', 'birthday':'YYYY/MM/DD'} });
     }
 }
 
