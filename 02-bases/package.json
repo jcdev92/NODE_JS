@@ -1,0 +1,13 @@
+{
+  "name": "02-bases",
+  "version": "0.0.1",
+  "description": "Esta es una aplicacion en node, de prueba.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "echo 'hola mundo desde dev'"
+  },
+  "author": "jesus clemente",
+  "license": "MIT"
+}
