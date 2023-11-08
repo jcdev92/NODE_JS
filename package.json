@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js",
-    "dev": "nodemom src/app.js"
+    "dev": "nodemon src/app.js"
   },
   "author": "jesus clemente",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "nodemon": "^3.0.1"
   }
 }
