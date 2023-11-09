@@ -28,7 +28,11 @@
     // })
 
 //? Factory Functions
-    const {buildPerson} = require('./src/js-foundation/05-factory')
+    const {getId, getAge} = require('./src/plugins') //? patron adaptador
+    const {buildMakePerson} = require('./src/js-foundation/05-factory')
+    const makePerson = buildMakePerson({getId, getAge})
+
+
     const obj = {name: 'John', birthdate: '1985-10-21'};
-    const john = buildPerson(obj);
+    const john = makePerson(obj);
     console.log(john);

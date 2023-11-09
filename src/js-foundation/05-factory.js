@@ -1,16 +1,19 @@
-// const {getId} = require('../plugins/get-id.plugins');
-// const {getAge} = require('../plugins/get-age.plugins');
-const {getId, getAge} = require('../plugins')
+//* factory function
+const buildMakePerson = ({ getId, getAge }) => {
 
-const buildPerson = ({name, birthdate}) => {
-    return {
-        id: getId(),
-        name: name,
-        birthdate: birthdate,
-        age: getAge(birthdate)
+    return ({ name, birthdate }) => {
+
+        return {
+            id: getId(),
+            name: name,
+            birthdate: birthdate,
+            age: getAge(birthdate)
+        }
+
     }
+
 };
 
 module.exports = {
-    buildPerson,
+    buildMakePerson,
 };
