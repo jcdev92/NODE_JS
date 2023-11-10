@@ -28,11 +28,18 @@
     // })
 
 //? Factory Functions
-    const {getId, getAge} = require('./src/plugins') //? patron adaptador
-    const {buildMakePerson} = require('./src/js-foundation/05-factory')
-    const makePerson = buildMakePerson({getId, getAge})
+    // const {getId, getAge} = require('./src/plugins') //? patron adaptador
+    // const {buildMakePerson} = require('./src/js-foundation/05-factory')
+    // const makePerson = buildMakePerson({getId, getAge})
 
 
-    const obj = {name: 'John', birthdate: '1985-10-21'};
-    const john = makePerson(obj);
-    console.log(john);
+    // const obj = {name: 'John', birthdate: '1985-10-21'};
+    // const john = makePerson(obj);
+    // console.log(john);
+
+// promises, asyn await, http request...
+const getPokemonById = require('./src/js-foundation/06-promises')
+getPokemonById(4)
+  .then( ( pokemon ) => console.log({ pokemon }) )
+  .catch( ( err ) => console.log( err ) )
+  .finally( () => console.log('Finalmente') );
