@@ -48,3 +48,4 @@ const {buildLogger} = require('./src/plugins');
 const logger = buildLogger('./app.js');
 
 logger.log('Hola Mundo');
+logger.error('Aqui hubo un problema');
