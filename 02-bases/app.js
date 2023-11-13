@@ -38,8 +38,13 @@
     // console.log(john);
 
 // promises, asyn await, http request...
-const getPokemonById = require('./src/js-foundation/06-promises')
-getPokemonById(4)
-  .then( ( pokemon ) => console.log({ pokemon }) )
-  .catch( ( err ) => console.log( err ) )
-  .finally( () => console.log('Finalmente') );
+const getPokemonById = require('./src/js-foundation/06-promises');
+// getPokemonById(4)
+//   .then( ( pokemon ) => console.log({ pokemon }) )
+//   .catch( ( err ) => console.log( err ) )
+//   .finally( () => console.log('Finalmente') );
+
+const {buildLogger} = require('./src/plugins');
+const logger = buildLogger('./app.js');
+
+logger.log('Hola Mundo');
