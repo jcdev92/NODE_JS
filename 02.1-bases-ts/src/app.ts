@@ -46,8 +46,11 @@
     //   .finally( () => console.log('Finalmente') );
 
 //? winston logger
-    // const {buildLogger} = require('./plugins');
-    // const logger = buildLogger('./app.js');
+    import { buildLogger } from "../src/plugins/logger.plugin"
+    const logger = buildLogger('./app.js');
 
-    // logger.log('Hola Mundo');
-    // logger.error('Aqui hubo un problema');
+    logger.log('Hola Mundo');
+    logger.error('Aqui hubo un problema');
+
+
+
