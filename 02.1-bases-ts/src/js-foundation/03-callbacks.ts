@@ -1,8 +1,8 @@
-// how the callbacks work
+// how a callback works
 interface User {
     id: number,
     name: string
-}
+};
 
 const users: User[] = [{
         id: 1,
@@ -14,7 +14,7 @@ const users: User[] = [{
 ];
 
 
-export const getUserById = (id: number, callback: (err?: string, user?: User) => void) => {
+export function getUserById(id: number, callback: (err?: string, user?: User) => void)  {
     const user = users.find(function(user) {
         return user.id === id;
     });

@@ -39,11 +39,12 @@
 // console.log(john);
 
 //? promises, asyn await, http request...
-// const getPokemonById = require('./js-foundation/06-promises');
-// getPokemonById(4)
-//   .then( ( pokemon ) => console.log({ pokemon }) )
-//   .catch( ( err ) => console.log( err ) )
-//   .finally( () => console.log('Finalmente') );
+import {getPokemonById} from './js-foundation/06-promises';
+
+getPokemonById(4)
+  .then( ( pokemon ) => console.log(pokemon.name) )
+  .catch( ( err ) => console.log( err ) )
+  .finally( () => console.log('Finalmente') );
 
 //? winston logger
 import { buildLogger } from "./plugins"
