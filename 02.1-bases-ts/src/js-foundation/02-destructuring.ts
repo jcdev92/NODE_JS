@@ -2,12 +2,11 @@
 // console.log(process);
 // console.log(process.env)
 
-const {SHELL, npm_lifecycle_script} = process.env
-console.table({SHELL, npm_lifecycle_script})
-
+const {SHELL, npm_lifecycle_script} = process.env;
+console.table({SHELL, npm_lifecycle_script});
 
 const superHeros = ['carpinter', 'superman', 'Batman'];
 //destruturing
-const [,,Batman] = superHeros
+const [,,Batman] = superHeros;
 
 
