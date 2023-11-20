@@ -5,7 +5,7 @@
 const {SHELL, npm_lifecycle_script} = process.env;
 console.table({SHELL, npm_lifecycle_script});
 
-export const superHeros = ['carpinter', 'superman', 'Batman'];
+export const superHeros = ['Flash', 'Superman', 'Batman'];
 //destruturing
 const [,,Batman] = superHeros;
 
