@@ -1,4 +1,4 @@
-import { getAge } from "./get-age-manual.plugins";
+import { getAge } from "./get-age-manual.plugin";
 
 describe('./get-age-manual.plugins.ts', () => {
 
@@ -10,8 +10,8 @@ describe('./get-age-manual.plugins.ts', () => {
         expect(typeof age).toBe('number');
 
     });
-    
-    
+
+
     test('getAge() should return current age', () => {
 
         const birthdate = '1985-10-21';
@@ -19,7 +19,7 @@ describe('./get-age-manual.plugins.ts', () => {
 
         const calculatedAge = new Date().getFullYear() - new Date(birthdate).getFullYear();
 
-        expect( age ).toBe(calculatedAge);
+        expect(age).toBe(calculatedAge);
 
     });
 
@@ -34,7 +34,7 @@ describe('./get-age-manual.plugins.ts', () => {
         expect(age).toBe(0)
         expect(spy).toHaveBeenCalled();
     })
-    
+
 
 
 
