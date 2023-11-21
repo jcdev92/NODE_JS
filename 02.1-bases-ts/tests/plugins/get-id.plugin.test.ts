@@ -1,6 +1,6 @@
-import { getId } from "./get-id.plugins";
+import { getId } from "../../src/plugins/get-id.plugins";
 
-describe('get-id.plugins.ts', () => {
+describe('../../src/plugins/get-id.plugins', () => {
     test('getId() should return a UUID', () => {
         const uuid = getId();
 

@@ -1,6 +1,6 @@
-import { httpClientPLugin } from "./http-client.plugin";
+import { httpClientPLugin } from "../../src/plugins/http-client.plugin";
 
-describe('./http-client.plugin.ts', () => {
+describe('.../../src/plugins/http-client.plugin.ts', () => {
     test('httpClientPlugin.get() should return a string', async() => {
 
         const data = await httpClientPLugin.get('https://jsonplaceholder.typicode.com/todos/1');

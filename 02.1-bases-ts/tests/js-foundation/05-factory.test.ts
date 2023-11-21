@@ -1,6 +1,6 @@
-import { buildMakePerson } from "../src/js-foundation/05-factory";
+import { buildMakePerson } from "../../src/js-foundation/05-factory";
 
-describe('../src/js-foundation/05-factory', () => {
+describe('../../src/js-foundation/05-factory', () => {
     const getId = () => '12345';
     const getAge = () => 35;
 

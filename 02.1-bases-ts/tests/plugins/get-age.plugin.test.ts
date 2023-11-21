@@ -1,6 +1,6 @@
-import { getAge } from "./get-age-manual.plugin";
+import { getAge } from "../../src/plugins/get-age.plugin";
 
-describe('./get-age-manual.plugins.ts', () => {
+describe('../../src/plugins/get-age.plugin.ts', () => {
 
     test('getAge() should return the age of the person', () => {
 
@@ -39,3 +39,5 @@ describe('./get-age-manual.plugins.ts', () => {
 
 
 });
+
+export { getAge };

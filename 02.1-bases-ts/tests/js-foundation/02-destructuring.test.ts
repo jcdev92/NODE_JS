@@ -1,6 +1,6 @@
-import { superHeros } from "../src/js-foundation/02-destructuring";
+import { superHeros } from "../../src/js-foundation/02-destructuring";
 
-describe('../src/js-foundation/02-destructuring.ts', () => {
+describe('../../src/js-foundation/02-destructuring.ts', () => {
     test('character should contain Flash, Superman', () => {
         expect(superHeros).toContain('Flash');
         expect(superHeros).toContain('Superman');

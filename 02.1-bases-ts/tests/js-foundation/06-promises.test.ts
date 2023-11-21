@@ -1,6 +1,6 @@
-import { getPokemonById } from "../src/js-foundation/06.5-promises";
+import { getPokemonById } from "../../src/js-foundation/06.5-promises";
 
-describe('../src/js-foundation/06.5-promises', () => {
+describe('../../src/js-foundation/06.5-promises', () => {
 
     test('getPokemonById should return a Pokemon', async () => {
         const pokemonId = 4;
