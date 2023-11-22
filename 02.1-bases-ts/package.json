@@ -1,0 +1,33 @@
+{
+  "name": "02-bases",
+  "version": "0.0.1",
+  "description": "Esta es una aplicacion en node, de prueba.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "npm run test && rimraf ./dist && tsc",
+    "start": "node dist/app.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "author": "jesus clemente",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.1",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.9.0",
+    "@types/uuid": "^9.0.7",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "rimraf": "^5.0.5",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
