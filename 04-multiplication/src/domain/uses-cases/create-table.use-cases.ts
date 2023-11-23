@@ -18,10 +18,10 @@ export class CreateTable implements CreateTableUseCase {
         let outputMessage: string = `
 ====================== 
     TABLA DEL ${base} 
-======================`;
+======================\n`;
 
         for (let i: number = 1; i <= limit; i++) {
-            outputMessage += `\n    ${base} x ${i} = ${base * i}\n`;
+            outputMessage += `    ${base} x ${i} = ${base * i}\n`;
         };
         return outputMessage;
     }
