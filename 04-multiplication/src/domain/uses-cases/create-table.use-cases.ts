@@ -12,12 +12,16 @@ export class CreateTable implements CreateTableUseCase {
         /**
          * DI - Dependency Injection
          */
-    ){}
+    ) { }
 
-    execute({base, limit = 10}: CreateTableOptions) {
-        let outputMessage = ''
+    execute({ base, limit = 10 }: CreateTableOptions) {
+        let outputMessage: string = `
+====================== 
+    TABLA DEL ${base} 
+======================`;
+
         for (let i: number = 1; i <= limit; i++) {
-            outputMessage += `    ${base} x ${i} = ${base * i}\n`;
+            outputMessage += `\n    ${base} x ${i} = ${base * i}\n`;
         };
         return outputMessage;
     }

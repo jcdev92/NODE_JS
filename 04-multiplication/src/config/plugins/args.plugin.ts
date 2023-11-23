@@ -23,13 +23,13 @@ export const yarg = yargs(hideBin(process.argv))
 .option('n', {
     alias: 'name',
     type: 'string',
-    default: 'tablita',
+    default: 'table',
     describe: 'File name'
 })
 .option('d', {
     alias: 'destination',
     type: 'string',
-    default: 'salidas',
+    default: 'outputs',
     describe: 'File destination'
 })
 
