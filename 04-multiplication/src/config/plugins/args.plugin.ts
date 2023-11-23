@@ -20,4 +20,10 @@ export const yarg = yargs(hideBin(process.argv))
     default: false,
     describe: 'Show Multiplication Table'
 })
-    .parseSync()
+.check((argv, options) => {
+    if (argv.b < 1) throw 'base must be greater than 0';
+    if (isNaN(argv.b)) throw 'base must be a number';
+    if (argv.b > argv.l) throw `You have reached the limit ${argv.l}`;
+    return true;
+})
+    .parseSync();
