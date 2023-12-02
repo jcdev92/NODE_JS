@@ -1,3 +1,8 @@
+# custom folders
+/test-destination
+/outputs
+
+
 # Logs
 logs
 *.log
