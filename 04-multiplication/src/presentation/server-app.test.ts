@@ -9,6 +9,7 @@ describe('server app', () => {
         expect(typeof ServerApp.run).toBe('function');
     });
 
+    //? PRUEBA DE INTEGRACION
     test('should run ServerApp with options', () => {
         const logSpy = jest.spyOn(console, 'log');
         const createTableSpy = jest.spyOn(CreateTable.prototype, 'execute');
@@ -19,7 +20,7 @@ describe('server app', () => {
             limit: 10,
             showTable: false,
             destination: 'test-destination',
-            name: 'test-Name',
+            name: 'test-name',
         };
 
         ServerApp.run(options);
@@ -27,6 +28,16 @@ describe('server app', () => {
         expect(logSpy).toHaveBeenCalledTimes(2);
         expect(logSpy).toHaveBeenCalledWith('Server running...');
         expect(logSpy).toHaveBeenCalledWith('File created!');
-        expect(createTableSpy).toHaveBeenCalledWith(options);
+        expect(createTableSpy).toHaveBeenCalledWith({
+            base: options.base,
+            limit: options.limit,
+        });
+
+        expect(saveFileSpy).toHaveBeenCalledTimes(1);
+        expect(saveFileSpy).toHaveBeenCalledWith({
+            fileContent: expect.any(String),
+            fileDestination: `${options.destination}/${options.name}-${options.base}`,
+            fileName: `${options.name}`,
+        });
     });
 });
