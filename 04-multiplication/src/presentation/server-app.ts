@@ -11,7 +11,7 @@ interface RunOptions {
 
 export class ServerApp {
     static run({ base, limit, showTable, name, destination }: RunOptions) {
-        console.log('Server is running');
+        console.log('Server running...');
 
         const table = new CreateTable().execute({ base, limit });
 
@@ -24,7 +24,7 @@ export class ServerApp {
         if (showTable) console.log(table);
 
         (wasCreated)
-            ? console.log('File Created')
+            ? console.log('File created!')
             : console.error('File not created')
     };
 };
