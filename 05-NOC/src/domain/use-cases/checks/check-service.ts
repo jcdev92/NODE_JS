@@ -13,7 +13,7 @@ export class CheckService implements CheckServiceUseCase {
             return true;
         }
         catch (error) {
-            console.log(`${error}`);
+            console.log(`error: ${error}`);
             return false;
         }
     }
