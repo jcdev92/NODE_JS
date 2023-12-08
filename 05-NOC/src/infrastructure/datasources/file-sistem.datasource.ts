@@ -29,12 +29,34 @@ export class FileSystemDatasource implements LogDatasource {
     };
 
 
-    saveLog(log: LogEntity): Promise<void> {
-       fs.appendFileSync(this.allLogsPath, `${JSON.stringify(log)}\n`);
+    async saveLog(newLog: LogEntity): Promise<void> {
+        const logAsJson = `${JSON.stringify(newLog)}\n`
+        fs.appendFileSync(this.allLogsPath, logAsJson);
+        if (newLog.level === LogSeverityLevel.low) return;
+        if (newLog.level === LogSeverityLevel.medium) {
+            fs.appendFileSync(this.mediumLogsPath, logAsJson);
+        } else {
+            fs.appendFileSync(this.highLogsPath, logAsJson);
+        }
     };
 
-    getLog(severityLevel: LogSeverityLevel): Promise<LogEntity[]> {
-        throw new Error("Method not implemented.");
+    private getLogsFromFile = (path: string): LogEntity[] => {
+        const content = fs.readFileSync(path, 'utf8');
+        const logs = content.split('\n').map(log => LogEntity.fromJson(log));
+        return logs;
+    }
+
+    async getLog(severityLevel: LogSeverityLevel): Promise<LogEntity[]> {
+        switch (severityLevel) {
+            case LogSeverityLevel.low:
+                return this.getLogsFromFile(this.allLogsPath);
+            case LogSeverityLevel.medium:
+                return this.getLogsFromFile(this.mediumLogsPath);
+            case LogSeverityLevel.high:
+                return this.getLogsFromFile(this.highLogsPath);
+            default:
+                throw new Error(`Invalid severity level: ${severityLevel}`);
+        };
     };
 
 }
